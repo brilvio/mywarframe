@@ -11,26 +11,20 @@
  * and limitations under the License.
  */
 
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
-import App from './App'
-import router from './router';
-import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
-import { components } from 'aws-amplify-vue'; 
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.config.productionTip = false
+Vue.use(Vuex)
 
-Amplify.configure(aws_exports)
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router: router,
-  template: '<App/>',
-  components: { 
-    App,
-    ...components
+const store = new Vuex.Store({
+  state: {
+    user: null
+  },
+  mutations: {
+    setUser(state, user) {
+      state.user = user
+    },
   }
 })
+
+export default store

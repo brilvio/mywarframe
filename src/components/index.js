@@ -10,27 +10,17 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import App from './App'
-import router from './router';
-import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
-import { components } from 'aws-amplify-vue'; 
+import Menu from './Menu';
+import Home from './Home';
+import Profile from './Profile';
+import ProfileForm from './ProfileForm';
 
-Vue.config.productionTip = false
+Vue.component('profile-form', ProfileForm)
 
-Amplify.configure(aws_exports)
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router: router,
-  template: '<App/>',
-  components: { 
-    App,
-    ...components
-  }
-})
+export {
+  Menu,
+  Home,
+  Profile,
+  ProfileForm
+}
